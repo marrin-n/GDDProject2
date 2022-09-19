@@ -11,7 +11,15 @@ public class CameraMovement : MonoBehaviour
     
     [SerializeField]
     [Tooltip("Edge size (how close the mouse needs to be to the edge to move the camera).")]
-    private float edgeSize;
+    private float m_EdgeSize;
+
+    [SerializeField]
+    [Tooltip("Max X position of screen (end of map)")]
+    private float m_MaxX;
+
+    [SerializeField]
+    [Tooltip("Max X position of screen (end of map)")]
+    private float m_MinX;
     #endregion
 
     #region Private Variables
@@ -30,13 +38,13 @@ public class CameraMovement : MonoBehaviour
     #region Main Updates
     private void LateUpdate() {
         MouseX = Input.mousePosition.x;
-        if (MouseX > Screen.width - edgeSize) {
+        if (MouseX > Screen.width - m_EdgeSize) {
             NewPos = transform.position + new Vector3(m_CameraSpeed, 0, 0) * Time.deltaTime;
-        } else if (MouseX < edgeSize) {
+        } else if (MouseX < m_EdgeSize) {
             NewPos = transform.position - new Vector3(m_CameraSpeed, 0, 0) * Time.deltaTime;
         }
 
-        if (NewPos.x > 0 & NewPos.x < 30) {
+        if (NewPos.x > m_MinX & NewPos.x < m_MaxX) {
             transform.position = NewPos;
         }
     }
