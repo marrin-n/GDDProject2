@@ -34,7 +34,7 @@ public class BeeSpawner : MonoBehaviour
     }
     #endregion
 
-    #region Spawn Function
+    #region Spawn Methods
     public void SpawnBee(Vector3 QueenPosition) {
         Bees.Add(Instantiate(m_Bee, QueenPosition + new Vector3(m_SpawnXOffset, m_SpawnYOffset, 0), Quaternion.identity).GetComponent<WorkerController>());
         Bees[Bees.Count-1].SetFollow(m_Player);    
@@ -47,6 +47,10 @@ public class BeeSpawner : MonoBehaviour
         {
             bee.SetFollow(follow);
         }
+    }
+
+    public void DespawnBee() {
+        NumSpawnedBees--;
     }
     #endregion
 }

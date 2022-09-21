@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flower
-  - Attack
   - Bee
+  - PlayerAttack
+  - EnemyAttack
+  - Attack
+  - Queen
   layers:
   - Default
   - TransparentFX

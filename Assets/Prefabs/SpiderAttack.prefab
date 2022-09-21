@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiderAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654823, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_TagString
+      value: EnemyAttack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
 --- !u!1 &976749225905198205 stripped
@@ -74,18 +78,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8048331523094654823, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
   m_PrefabInstance: {fileID: 7079507835777006362}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6821190728748613261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976749225905198205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7303369900054354b586145add61f30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-7296116126775387064
 Rigidbody2D:
   serializedVersion: 4
@@ -107,3 +99,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6821190728748613261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976749225905198205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7303369900054354b586145add61f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

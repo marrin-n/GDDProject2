@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 3
   m_MaxHealth: 1
+  m_Spawner: {fileID: 0}
 --- !u!58 &3614407638554397662
 CircleCollider2D:
   m_ObjectHideFlags: 0

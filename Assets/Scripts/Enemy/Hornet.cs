@@ -19,7 +19,7 @@ public class Hornet : Enemy
 
             cc_Rb.velocity = dir * m_Speed; 
         } else {
-            Debug.Log("No bee is in chase range"); 
+            //Debug.Log("No bee is in chase range"); 
         }
     } 
 
@@ -47,7 +47,7 @@ public class Hornet : Enemy
             } else if (distToBee - circleRange > 0) {
                 cc_Rb.velocity = dir * m_Speed; 
             } else {
-                Debug.Log("Evade condition not caught properly"); 
+                //Debug.Log("Evade condition not caught properly"); 
             }
         }
     } 
