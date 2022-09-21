@@ -56,16 +56,21 @@ public class QueenController : MonoBehaviour
     }
     #endregion
 
-    #region Main Updates
-    private void Update() {
+    #region Main Updates 
+    private void FixedUpdate() {
         //MOVEMENT
 
         //Update Mouse position
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Calculate direction based on mouse
         dir = mousePosition - new Vector2(transform.position.x, transform.position.y);
+        float distToMouse = dir.magnitude; 
         dir.Normalize();
-        cc_Rb.velocity = dir * m_Speed;
+        if (distToMouse > 0.1) {
+            cc_Rb.velocity = dir * m_Speed;
+        } else {
+            cc_Rb.velocity = new Vector2(0, 0); 
+        }
 
         //Check for attack trigger
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -76,7 +81,7 @@ public class QueenController : MonoBehaviour
         if (AttackCoolDown < 0) {
             EndAttack();
         } else if (AttackCoolDown > 0 & AttackInProgress) {
-            AttackCoolDown -= Time.deltaTime;
+            AttackCoolDown -= Time.fixedDeltaTime;
         }
         
     }
@@ -98,13 +103,12 @@ public class QueenController : MonoBehaviour
         if (!AttackInProgress) {
             AttackInProgress = true;
             AttackCoolDown = m_CooldownDuration;
-            //Calculates position based on the range given and teh direction the queen is headed 
+            //Calculates position based on the range given and the direction the queen is headed 
             AttackInstance = Instantiate(m_AttackCollider, new Vector2(transform.position.x, transform.position.y) + dir * m_AttackRange, Quaternion.identity);
             m_Spawner.SetAllFollows(AttackInstance);
         } else {
             Debug.Log("Cooldown not over, attack already in progress");
         }
-        
     }
     private void EndAttack() {
         AttackInProgress = false;

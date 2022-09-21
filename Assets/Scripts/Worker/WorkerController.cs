@@ -41,7 +41,7 @@ public class WorkerController : MonoBehaviour
     #endregion
 
     #region Main Updates
-    private void Update() {
+    private void FixedUpdate() {
         //MOVEMENT
         if (followObject != null) { // Uses queen as origin if it has been assigned, else uses origin
             origin = followObject.transform.position;

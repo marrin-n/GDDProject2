@@ -39,7 +39,7 @@ public class BeeSpawner : MonoBehaviour
         Bees.Add(Instantiate(m_Bee, QueenPosition + new Vector3(m_SpawnXOffset, m_SpawnYOffset, 0), Quaternion.identity).GetComponent<WorkerController>());
         Bees[Bees.Count-1].SetFollow(m_Player);    
         NumSpawnedBees++;
-        Debug.Log(NumSpawnedBees);
+        Debug.Log("Bee spanwed. Total bees spawned: " + NumSpawnedBees);
     }
 
     public void SetAllFollows(GameObject follow){ // used to switch the follow point between queen and attack collider

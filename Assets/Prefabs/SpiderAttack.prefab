@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7079507835777006362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4463527965226007538, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_TimeToDestruction
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654821, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048331523094654823, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+      propertyPath: m_Name
+      value: SpiderAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+--- !u!1 &976749225905198205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8048331523094654823, guid: 76b862f0f7b6045a9b05b9b615a351f6, type: 3}
+  m_PrefabInstance: {fileID: 7079507835777006362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6821190728748613261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976749225905198205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7303369900054354b586145add61f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-7296116126775387064
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976749225905198205}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

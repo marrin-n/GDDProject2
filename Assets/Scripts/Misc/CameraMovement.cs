@@ -30,7 +30,7 @@ public class CameraMovement : MonoBehaviour
 
     #region Intialization
     private void Awake() {
-        transform.position = new Vector3(0,0, -10);
+        transform.position = new Vector3(0, 0, -10);
 
     }
     #endregion
