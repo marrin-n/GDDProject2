@@ -10,6 +10,7 @@ TagManager:
   - EnemyAttack
   - Attack
   - Queen
+  - Endzone
   layers:
   - Default
   - TransparentFX

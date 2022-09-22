@@ -97,10 +97,17 @@ public class QueenController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         // Spawns new bee when colliding with flower
         if (other.CompareTag("Flower")) {
-            m_Spawner.SpawnBee(transform.position);
+            int numBees = other.gameObject.GetComponent<Flower>().NumBees;
             Destroy(other.gameObject);
+            Debug.Log(numBees);
+            for (int i = 0; i < numBees; i++ ) {
+                m_Spawner.SpawnBee(transform.position + new Vector3(i, 0, 0));
+            }
         } else if (other.CompareTag("EnemyAttack")) {
             DecreaseHealth(1);
+        } else if (other.CompareTag("Endzone")) {
+            Debug.Log("Game Won");
+            SceneManager.LoadScene("Win");
         }
     }
     #endregion
