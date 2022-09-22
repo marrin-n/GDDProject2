@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QueenController : MonoBehaviour
 {
@@ -72,18 +73,23 @@ public class QueenController : MonoBehaviour
             cc_Rb.velocity = new Vector2(0, 0); 
         }
 
-        //Check for attack trigger
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Attack();
-        }
-
         //Check for attack CoolDown
-        if (AttackCoolDown < 0) {
+        if (AttackInProgress & AttackCoolDown <= 0) {
             EndAttack();
         } else if (AttackCoolDown > 0 & AttackInProgress) {
             AttackCoolDown -= Time.fixedDeltaTime;
         }
         
+    }
+    private void Update() {
+        //Check for attack trigger
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Attack();
+        }
+
+        if (p_CurHealth <= 0) {
+            SceneManager.LoadScene("Death");
+        }
     }
     #endregion
 
@@ -91,8 +97,17 @@ public class QueenController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         // Spawns new bee when colliding with flower
         if (other.CompareTag("Flower")) {
-            m_Spawner.SpawnBee(transform.position);
+            int numBees = other.gameObject.GetComponent<Flower>().NumBees;
             Destroy(other.gameObject);
+            Debug.Log(numBees);
+            for (int i = 0; i < numBees; i++ ) {
+                m_Spawner.SpawnBee(transform.position + new Vector3(i, 0, 0));
+            }
+        } else if (other.CompareTag("EnemyAttack")) {
+            DecreaseHealth(1);
+        } else if (other.CompareTag("Endzone")) {
+            Debug.Log("Game Won");
+            SceneManager.LoadScene("Win");
         }
     }
     #endregion
@@ -117,4 +132,12 @@ public class QueenController : MonoBehaviour
         Destroy(AttackInstance);
     }
     #endregion
+
+    #region Health Methods
+    private void DecreaseHealth(float amt) {
+        p_CurHealth -= amt;
+        Debug.Log("Queen Health " + p_CurHealth.ToString());
+    }
+    #endregion
+
 }

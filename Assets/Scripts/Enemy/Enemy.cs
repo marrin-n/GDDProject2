@@ -44,7 +44,11 @@ public class Enemy : MonoBehaviour
 
     #region Main Updates
     private void FixedUpdate() 
-    {
+    {   
+        if (p_curHealth < 0) {
+            Debug.Log("ENEMY DIE");
+            Destroy(gameObject);
+        }
         //ChangeMoveState
         ChangeMoveState(); 
 
@@ -223,5 +227,21 @@ public class Enemy : MonoBehaviour
 
     } 
     #endregion 
+
+    #region Health Methods
+    private void DecreaseHealth(float amt) {
+        p_curHealth -= amt;
+    }
+    #endregion
+
+    #region Collsion Methods
+    private void OnTriggerEnter2D(Collider2D col) {
+        if(col.CompareTag("PlayerAttack")) {
+            DecreaseHealth(col.gameObject.GetComponent<PlayerAttack>().damage);
+            Debug.Log("enemy health " + p_curHealth.ToString());
+            //DecreaseHealth(5);
+        }
+    }
+    #endregion
 
 }

@@ -58,7 +58,7 @@ public class Spider : Enemy
 
             cc_Rb.velocity = dir * activeSpeed; 
         } else {
-            Debug.Log("No bee is in chase range"); 
+            //Debug.Log("No bee is in chase range"); 
         }
     } 
 
