@@ -14,11 +14,11 @@ public class Spider : Enemy
     //determiens if spider should walk or stop for few random seconds
     private bool walking = true;
     
-    private void walkBackAndForth(float speed) {
+    private void walkBackAndForth(float speed, bool stopEnabled) {
         if (walkTimer == 0) {
             float duration = Random.Range(1f, 3f); 
             walkTimer += duration; 
-            if (walking) {
+            if ((!stopEnabled) || walking) {
                 dir *= -1; 
             } 
         } else if (walkTimer < 0) {
@@ -32,12 +32,12 @@ public class Spider : Enemy
 
     private void walkStop(float speed, bool stopEnabled) {
         if (!stopEnabled) {
-            walkBackAndForth(speed); 
+            walkBackAndForth(speed, stopEnabled); 
         } else if (stopEnabled) {
             if (walking) {
-                walkBackAndForth(speed); 
+                walkBackAndForth(speed, stopEnabled); 
             } else {
-                walkBackAndForth(0); 
+                walkBackAndForth(0, stopEnabled); 
             }
         }
     }
@@ -47,7 +47,7 @@ public class Spider : Enemy
         walkStop(restSpeed, true); 
     } 
 
-    private float activeSpeed = 5f; 
+    private float activeSpeed = 3f; 
     //After detecting the player, moves closer until within a certain range 
     protected override void Chase() {
         if (InSightRange()) {
@@ -66,4 +66,19 @@ public class Spider : Enemy
     protected override void Evade() {
         walkStop(activeSpeed, false); 
     } 
+
+    protected override void Attack() {
+        if (InAttackRange() && allowAttack) {
+            allowAttack = false; 
+            cc_Animator.SetTrigger("Attack"); 
+            cc_Rb.velocity = new Vector2(0, 0); 
+            Vector2 BeePos = AttackRangeScript.GetRandomTarget().transform.position; 
+            Vector2 dir = BeePos - new Vector2(transform.position.x, transform.position.y); 
+            dir.Normalize(); 
+
+            CreateAttack(dir); 
+
+            BeeFound = false; 
+        } 
+    }
 }

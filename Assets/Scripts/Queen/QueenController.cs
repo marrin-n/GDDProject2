@@ -88,7 +88,7 @@ public class QueenController : MonoBehaviour
         }
 
         if (p_CurHealth <= 0) {
-            SceneManager.LoadScene("Death");
+            SceneManager.LoadScene("MainMenu");
         }
     }
     #endregion
@@ -99,7 +99,6 @@ public class QueenController : MonoBehaviour
         if (other.CompareTag("Flower")) {
             int numBees = other.gameObject.GetComponent<Flower>().NumBees;
             Destroy(other.gameObject);
-            Debug.Log(numBees);
             for (int i = 0; i < numBees; i++ ) {
                 m_Spawner.SpawnBee(transform.position + new Vector3(i, 0, 0));
             }
@@ -107,7 +106,7 @@ public class QueenController : MonoBehaviour
             DecreaseHealth(1);
         } else if (other.CompareTag("Endzone")) {
             Debug.Log("Game Won");
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene("MainMenu");
         }
     }
     #endregion

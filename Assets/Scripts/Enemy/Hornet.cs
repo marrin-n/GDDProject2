@@ -34,20 +34,22 @@ public class Hornet : Enemy
                 BeeFound = true; 
                 TargetBee = SightRangeScript.GetRandomTarget(); 
             }
-            Vector2 BeePos = TargetBee.transform.position; 
-            Vector2 dir = BeePos - new Vector2(transform.position.x, transform.position.y); 
-            float distToBee = dir.magnitude; 
-            dir.Normalize(); 
+            if (TargetBee != null) {
+                Vector2 BeePos = TargetBee.transform.position; 
+                Vector2 dir = BeePos - new Vector2(transform.position.x, transform.position.y); 
+                float distToBee = dir.magnitude; 
+                dir.Normalize(); 
 
-            if (Mathf.Abs(distToBee - circleRange) < 0.5) { //Enemy can start circling the player
-                cc_Rb.velocity = new Vector2(-dir.y, dir.x) * m_Speed; 
-            } else if (distToBee - circleRange < 0) {
-                dir *= -1; 
-                cc_Rb.velocity = dir * m_Speed; 
-            } else if (distToBee - circleRange > 0) {
-                cc_Rb.velocity = dir * m_Speed; 
-            } else {
-                //Debug.Log("Evade condition not caught properly"); 
+                if (Mathf.Abs(distToBee - circleRange) < 0.5) { //Enemy can start circling the player
+                    cc_Rb.velocity = new Vector2(-dir.y, dir.x) * m_Speed; 
+                } else if (distToBee - circleRange < 0) {
+                    dir *= -1; 
+                    cc_Rb.velocity = dir * m_Speed; 
+                } else if (distToBee - circleRange > 0) {
+                    cc_Rb.velocity = dir * m_Speed; 
+                } else {
+                    //Debug.Log("Evade condition not caught properly"); 
+                }
             }
         }
     } 

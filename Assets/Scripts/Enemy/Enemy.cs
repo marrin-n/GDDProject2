@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     #region Cached Components 
     protected Rigidbody2D cc_Rb; 
+    protected Animator cc_Animator; 
     #endregion 
 
     #region Cached References
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         p_curHealth = m_MaxHealth; 
 
         cc_Rb = GetComponent<Rigidbody2D>();
+        cc_Animator = GetComponent<Animator>(); 
 
         InitializeMoveStateVariables(); 
     }
